@@ -19,7 +19,7 @@ def create_alx_book_store_db():
         connection = mysql.connector.connect(
             host="localhost",  # Or your MySQL server's IP address/hostname
             user="root",       # Your MySQL username
-            password="your_mysql_password" # Your MySQL password
+            password="Nahom@8665" # Your MySQL password
         )
 
         if connection.is_connected():
