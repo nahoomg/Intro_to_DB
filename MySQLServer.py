@@ -1,7 +1,10 @@
-
 # MySQLServer.py
 import mysql.connector
 from mysql.connector import Error
+import sys # Import sys for flushing output
+
+print("Script started. Initializing database creation process...")
+sys.stdout.flush() # Ensure this print is displayed immediately
 
 def create_alx_book_store_db():
     """
@@ -14,40 +17,48 @@ def create_alx_book_store_db():
     cursor = None
 
     try:
-        # Establish a connection to the MySQL server
-        # You might need to change host, user, and password based on your MySQL setup
+        print("Attempting to connect to MySQL server...")
+        sys.stdout.flush() # Ensure this print is displayed immediately
+
         connection = mysql.connector.connect(
-            host="localhost",  # Or your MySQL server's IP address/hostname
-            user="root",       # Your MySQL username
-            password="Nahom@8665" # Your MySQL password
+            host="127.0.0.1",
+            user="root",
+            password="Nahom@8665"
         )
 
+        print("Connection attempt completed.")
+        sys.stdout.flush() # Ensure this print is displayed immediately
+
         if connection.is_connected():
+            print("Successfully connected to MySQL server.")
+            sys.stdout.flush() # Ensure this print is displayed immediately
             cursor = connection.cursor()
 
-            # SQL query to create the database if it doesn't exist
-            # Using IF NOT EXISTS ensures the script does not fail if the DB already exists
             create_db_query = f"CREATE DATABASE IF NOT EXISTS {db_name}"
             cursor.execute(create_db_query)
 
             print(f"Database '{db_name}' created successfully!")
+            sys.stdout.flush() # Ensure this print is displayed immediately
         else:
-            print("Failed to connect to MySQL server.")
+            print("Failed to connect to MySQL server (connection not established).")
+            sys.stdout.flush() # Ensure this print is displayed immediately
 
-    except Error as e:
-        # Handle specific MySQL connection errors
-        print(f"Error connecting to MySQL or creating database: {e}")
+    except Exception as e: # <--- CHANGED FROM 'Error' to 'Exception'
+        print(f"An unexpected error occurred: {e}")
+        sys.stdout.flush() # Ensure this print is displayed immediately
     finally:
-        # Ensure cursor and connection are closed properly
         if cursor:
             cursor.close()
+            print("Cursor closed.")
+            sys.stdout.flush() # Ensure this print is displayed immediately
         if connection and connection.is_connected():
             connection.close()
             print("MySQL connection closed.")
+            sys.stdout.flush() # Ensure this print is displayed immediately
+        elif connection: # If connection object exists but isn't connected (e.g. failed to connect)
+            print("Connection object existed but was not connected (or failed to connect fully).")
+            sys.stdout.flush() # Ensure this print is displayed immediately
+
 
 if __name__ == "__main__":
-    # --- IMPORTANT ---
-    # Replace 'your_mysql_password' with your actual MySQL root password
-    # before running the script.
-    # ---
     create_alx_book_store_db()
