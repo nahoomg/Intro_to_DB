@@ -1,7 +1,7 @@
 -- task_4.sql
 -- This script retrieves and displays the schema (full description)
 -- of the 'books' table from the 'alx_book_store' database.
--- It explicitly queries the INFORMATION_SCHEMA to avoid using DESCRIBE or EXPLAIN.
+
 
 USE alx_book_store;
 
