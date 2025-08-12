@@ -34,7 +34,7 @@ def create_alx_book_store_db():
             sys.stdout.flush() # Ensure this print is displayed immediately
             cursor = connection.cursor()
 
-            create_db_query = f"CREATE DATABASE IF NOT EXISTS {db_name}"
+            create_db_query = f"CREATE DATABASE IF NOT EXISTS alx_book_store"
             cursor.execute(create_db_query)
 
             print(f"Database '{db_name}' created successfully!")
