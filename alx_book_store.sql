@@ -1,10 +1,6 @@
 -- alx_book_store.sql
 
--- Drop the database if it already exists to ensure a clean slate
-DROP DATABASE IF EXISTS ALX_BOOK_STORE;
-
--- Create the database
-CREATE DATABASE ALX_BOOK_STORE;
+CREATE DATABASE IF NOT EXISTS alx_book_store;
 
 -- Use the newly created database
 USE ALX_BOOK_STORE;
