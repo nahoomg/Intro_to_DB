@@ -2,7 +2,6 @@
 -- This script retrieves and displays the schema (full description)
 -- of the 'books' table from the 'alx_book_store' database.
 
-
 USE alx_book_store;
 
 SELECT
@@ -16,4 +15,4 @@ FROM
     INFORMATION_SCHEMA.COLUMNS
 WHERE
     TABLE_SCHEMA = 'alx_book_store'
-AND TABLE_NAME = 'books';
+AND TABLE_NAME = 'Books';
