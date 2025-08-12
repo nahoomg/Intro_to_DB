@@ -4,7 +4,7 @@
 USE ALX_BOOK_STORE;
 
 -- Inserts a single row into the Customers table.
-INSERT INTO Customers (
+INSERT INTO Customer (
     customer_id,
     customer_name,
     email,
