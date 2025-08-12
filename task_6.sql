@@ -1,10 +1,10 @@
 -- task_6.sql
+-- This script inserts multiple rows into the 'customer' table
+-- in the 'alx_book_store' database.
 
--- Use the alx_book_store database
-USE ALX_BOOK_STORE;
+USE alx_book_store;
 
--- Inserts multiple rows into the Customers table.
-INSERT INTO Customers (
+INSERT INTO customer (
     customer_id,
     customer_name,
     email,
